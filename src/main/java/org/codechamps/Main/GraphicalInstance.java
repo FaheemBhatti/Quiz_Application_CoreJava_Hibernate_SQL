@@ -6,22 +6,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GraphicalInstance extends JFrame {
 
@@ -56,6 +50,11 @@ public class GraphicalInstance extends JFrame {
 		tabbedPane.addTab("PLAY", null, panel, null);	
 		
 		JButton btnNewButton = new JButton("General Knowlege Quiz");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GraphicalInstanceController.frame.setVisible(false);
+			}
+		});
 		
 		JButton btnItKnowlegeQuiz = new JButton("IT Knowlege Quiz");
 		
