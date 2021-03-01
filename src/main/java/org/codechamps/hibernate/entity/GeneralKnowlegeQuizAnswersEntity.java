@@ -5,25 +5,24 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "GeneralKnowlegeQuizEntity")
-@Table(name = "GeneralKnowlegeQuiz")
-public class GeneralKnowlegeQuizEntity 
+@Table(name = "GeneralKnowlegeQuizAnswers")
+@Entity(name = "GeneralKnowlegeQuizAnswersEntity")
+public class GeneralKnowlegeQuizAnswersEntity 
 {
-	
-	public GeneralKnowlegeQuizEntity() {}
 	@Id
 	@Column(name = "id")
 	private int id;
-	@Column(name = "question")
-	private String question;
+	@Column(name = "questionId")
+	private int questionId;
 	@Column(name = "answer")
 	private String answer;
 	
-	public GeneralKnowlegeQuizEntity(int id, String quesiton, String answer)
-	{
+	public GeneralKnowlegeQuizAnswersEntity() {}
+	
+	public GeneralKnowlegeQuizAnswersEntity(int id, int questionId, String answer) {
 		this.answer = answer;
 		this.id = id;
-		this.question = quesiton;
+		this.questionId = questionId;
 	}
 
 	public int getId() {
@@ -34,12 +33,12 @@ public class GeneralKnowlegeQuizEntity
 		this.id = id;
 	}
 
-	public String getQuestion() {
-		return question;
+	public int getQuestionId() {
+		return questionId;
 	}
 
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 
 	public String getAnswer() {

@@ -9,7 +9,7 @@ public class GraphicalInstanceController
 {
 	public static GraphicalInstance frame;
 	
-	public void nimbus() {
+	public static void nimbus() {
 		try {
 		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 		        if ("Nimbus".equals(info.getName())) {
@@ -21,7 +21,7 @@ public class GraphicalInstanceController
 		catch (Exception e) {}
 	}
 	
-	public void guiInit()
+	public static void guiInit()
 	{
 		
 		EventQueue.invokeLater(new Runnable() {
