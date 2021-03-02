@@ -3,7 +3,6 @@ package org.codechamps.service;
 import java.util.List;
 
 import org.codechamps.hibernate.DAO.GeneralKnowlegeQuizQuestionDAO;
-import org.codechamps.hibernate.entity.GeneralKnowlegeQuizAnswersEntity;
 import org.codechamps.hibernate.entity.GeneralKnowlegeQuizQuestionsEntity;
 
 public class GeneralKnowlegeQuizQuestionsService 
@@ -25,8 +24,4 @@ public class GeneralKnowlegeQuizQuestionsService
 	public List<GeneralKnowlegeQuizQuestionsEntity> getQuizElement(int QuizId) {
 		return dao.getQuizElement(QuizId);
 	}
-	
-	
-
-	
 }

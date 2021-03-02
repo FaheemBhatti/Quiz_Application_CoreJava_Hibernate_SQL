@@ -2,30 +2,29 @@ package org.codechamps.hibernate.DAO;
 
 import java.util.List;
 
-import org.codechamps.hibernate.entity.PubQuizAnswersEntity;
-import org.codechamps.hibernate.entity.PubQuizQuestionsEntity;
+import org.codechamps.hibernate.entity.ITKnowlegeQuizAnswersEntity;
+import org.codechamps.hibernate.entity.ITKnowlegeQuizQuestionsEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class PubQuizQuestionsDAO {
-	
+public class ITKnowlegeQuizQuestionDAO {
+
 	SessionFactory factory = (SessionFactory) new Configuration()
 			.configure("hibernate.cfg.xml")
-			.addAnnotatedClass(PubQuizQuestionsEntity.class)
-			.addAnnotatedClass(PubQuizAnswersEntity.class)
+			.addAnnotatedClass(ITKnowlegeQuizQuestionsEntity.class)
+			.addAnnotatedClass(ITKnowlegeQuizAnswersEntity.class)
 			.buildSessionFactory();
 	
-	
-	public List<PubQuizQuestionsEntity> getQuizElements() {
+	public List<ITKnowlegeQuizQuestionsEntity> getQuizElements() {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		List<PubQuizQuestionsEntity> list = session.createQuery("from pubQuizQuestionsEntity").getResultList();
+		List<ITKnowlegeQuizQuestionsEntity> list = session.createQuery("from ITKnowlegeQuizQuestionsEntity").getResultList();
 		return list;
 	}
 	
-	public void addQuizEntity(PubQuizQuestionsEntity entity) {
+	public void addQuizEntity(ITKnowlegeQuizQuestionsEntity entity) {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		session.save(entity);
@@ -36,19 +35,19 @@ public class PubQuizQuestionsDAO {
 	{
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		PubQuizQuestionsEntity entity = session.get(PubQuizQuestionsEntity.class,QuizId);
+		ITKnowlegeQuizQuestionsEntity entity = session.get(ITKnowlegeQuizQuestionsEntity.class,QuizId);
 		session.remove(entity);
 		session.getTransaction().commit();
 	}
 	
-	public List<PubQuizQuestionsEntity> getQuizElement(int QuizId) 
+	
+	public List<ITKnowlegeQuizQuestionsEntity> getQuizElement(int QuizId) 
 	{
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		String HQL = "from pubQuizQuestionsEntity where id ='" + QuizId+"'";
+		String HQL = "from ITKnowlegeQuizQuestionsEntity where id ='" + QuizId+"'";
 		@SuppressWarnings("unchecked")
-		List<PubQuizQuestionsEntity> brand = session.createQuery(HQL).getResultList();
+		List<ITKnowlegeQuizQuestionsEntity> brand = session.createQuery(HQL).getResultList();
 		return brand;
 	}
-
 }

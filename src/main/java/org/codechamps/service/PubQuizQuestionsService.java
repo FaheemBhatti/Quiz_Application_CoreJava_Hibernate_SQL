@@ -21,10 +21,6 @@ public class PubQuizQuestionsService {
 		dao.deleteQuizElement(QuizId);
 	}
 	
-	public void updateQuizElement(PubQuizQuestionsEntity updatedQuiz) {
-		dao.updateQuizElement(updatedQuiz);
-	}
-	
 	public List<PubQuizQuestionsEntity> getQuizElement(int QuizId) {
 		return dao.getQuizElement(QuizId);
 	}

@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "PubQuizQuestionsEntity")
-@Table(name = "PubQuizQuestions")
+@Entity(name = "pubQuizQuestionsEntity")
+@Table(name = "pubQuizQuestions")
 public class PubQuizQuestionsEntity {
 	
 	@Id
@@ -14,16 +14,12 @@ public class PubQuizQuestionsEntity {
 	private int id;
 	@Column(name = "question")
 	private String question;
-	@Column(name = "answer")
-	private String answer;
 	
 	public PubQuizQuestionsEntity() {}
 	
-	public PubQuizQuestionsEntity(int id, String question, String answer)
-	{
-		this.answer = answer;
-		this.question = question;
+	public PubQuizQuestionsEntity(int id, String question) {
 		this.id = id;
+		this.question = question;
 	}
 
 	public int getId() {
@@ -41,13 +37,8 @@ public class PubQuizQuestionsEntity {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+	
+	
+	
 
 }
