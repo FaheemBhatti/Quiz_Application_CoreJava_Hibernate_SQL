@@ -2,8 +2,6 @@ package org.codechamps.hibernate.DAO;
 
 import java.util.List;
 
-import org.codechamps.hibernate.entity.GeneralKnowlegeQuizAnswersEntity;
-import org.codechamps.hibernate.entity.GeneralKnowlegeQuizQuestionsEntity;
 import org.codechamps.hibernate.entity.ITKnowlegeQuizAnswersEntity;
 import org.codechamps.hibernate.entity.ITKnowlegeQuizQuestionsEntity;
 import org.hibernate.Session;

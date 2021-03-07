@@ -13,14 +13,15 @@ import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 
 public class GraphicalInstance extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static GeneralKnowledgeQuizGraphicalInstance frame;
 	private JPanel contentPane;
 	BufferedImage image = null;
-
 	
 	public GraphicalInstance() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,7 +51,17 @@ public class GraphicalInstance extends JFrame {
 		JButton btnNewButton = new JButton("General Knowlege Quiz");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GraphicalInstanceController.frame.setVisible(false);
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							setFrame(new GeneralKnowledgeQuizGraphicalInstance());
+							getFrame().setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			
 			}
 		});
 		
@@ -109,5 +120,13 @@ public class GraphicalInstance extends JFrame {
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("MODIFY", null, panel_1, null);
 		contentPane.setLayout(gl_contentPane);
+	}
+
+	public static GeneralKnowledgeQuizGraphicalInstance getFrame() {
+		return frame;
+	}
+
+	public static void setFrame(GeneralKnowledgeQuizGraphicalInstance frame) {
+		GraphicalInstance.frame = frame;
 	}
 }

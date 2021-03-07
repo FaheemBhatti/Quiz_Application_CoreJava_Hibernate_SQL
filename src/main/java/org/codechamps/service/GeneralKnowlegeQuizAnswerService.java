@@ -12,5 +12,13 @@ public class GeneralKnowlegeQuizAnswerService
 	public List<GeneralKnowlegeQuizAnswersEntity> getAnswers(int questionId){
 		return dao.getAnswers(questionId);
 	}
+	
+	public String getCorrectAnswer(int questionId){
+		return  dao.getCorrectAnswer(questionId);
+	}
+	
+	public List<GeneralKnowlegeQuizAnswersEntity> getAnswers() {
+		return dao.getAnswers();
+	}
 
 }

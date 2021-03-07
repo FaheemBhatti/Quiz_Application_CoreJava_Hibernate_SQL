@@ -16,6 +16,18 @@ public class GeneralKnowlegeQuizAnswerDAO
 			.addAnnotatedClass(GeneralKnowlegeQuizAnswersEntity.class)
 			.buildSessionFactory();
 	
+	public List<GeneralKnowlegeQuizAnswersEntity> getAnswers() {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		String HQL = "from GeneralKnowlegeQuizAnswersEntity ";
+		@SuppressWarnings("unchecked")
+		List<GeneralKnowlegeQuizAnswersEntity> answersList = session.createQuery(HQL).getResultList();
+		session.close();
+		return answersList;
+	}
+	
+	
+	
 	
 	public List<GeneralKnowlegeQuizAnswersEntity> getAnswers(int questionId) 
 	{
@@ -24,7 +36,18 @@ public class GeneralKnowlegeQuizAnswerDAO
 		String HQL = "from GeneralKnowlegeQuizAnswersEntity where questionId ='" + questionId+"'";
 		@SuppressWarnings("unchecked")
 		List<GeneralKnowlegeQuizAnswersEntity> answersList = session.createQuery(HQL).getResultList();
+		session.close();
 		return answersList;
 	}
+	
+	public String getCorrectAnswer(int questionId){
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		String HQL = "from GeneralKnowlegeQuizAnswersEntity where questionId = '" + questionId + "'and flag ='" +1+"'" ;
+		GeneralKnowlegeQuizAnswersEntity entity = (GeneralKnowlegeQuizAnswersEntity) session.createQuery(HQL).getSingleResult();
+		session.close();
+		return entity.getAnswer();
+	}
+	
 
 }

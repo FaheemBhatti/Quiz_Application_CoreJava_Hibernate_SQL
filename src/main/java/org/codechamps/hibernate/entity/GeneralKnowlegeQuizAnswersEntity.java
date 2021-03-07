@@ -16,13 +16,16 @@ public class GeneralKnowlegeQuizAnswersEntity
 	private int questionId;
 	@Column(name = "answer")
 	private String answer;
+	@Column(name = "flag")
+	private int flag;
 	
 	public GeneralKnowlegeQuizAnswersEntity() {}
 	
-	public GeneralKnowlegeQuizAnswersEntity(int id, int questionId, String answer) {
+	public GeneralKnowlegeQuizAnswersEntity(int id, int questionId, String answer, int flag) {
 		this.answer = answer;
 		this.id = id;
 		this.questionId = questionId;
+		this.flag = flag;
 	}
 
 	public int getId() {
@@ -48,4 +51,14 @@ public class GeneralKnowlegeQuizAnswersEntity
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+	
+	
 }

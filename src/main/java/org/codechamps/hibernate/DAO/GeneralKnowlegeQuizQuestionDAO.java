@@ -22,6 +22,7 @@ public class GeneralKnowlegeQuizQuestionDAO
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
 		List<GeneralKnowlegeQuizQuestionsEntity> list = session.createQuery("from GeneralKnowlegeQuizQuestionsEntity").getResultList();
+		session.close();
 		return list;
 	}
 	
@@ -30,6 +31,7 @@ public class GeneralKnowlegeQuizQuestionDAO
 		session.beginTransaction();
 		session.save(entity);
 		session.getTransaction().commit();
+		session.close();
 	}
 	
 	public void deleteQuizElement(int QuizId) 
@@ -39,6 +41,7 @@ public class GeneralKnowlegeQuizQuestionDAO
 		GeneralKnowlegeQuizQuestionsEntity entity = session.get(GeneralKnowlegeQuizQuestionsEntity.class,QuizId);
 		session.remove(entity);
 		session.getTransaction().commit();
+		session.close();
 	}
 	
 	public List<GeneralKnowlegeQuizQuestionsEntity> getQuizElement(int QuizId) 
@@ -48,6 +51,7 @@ public class GeneralKnowlegeQuizQuestionDAO
 		String HQL = "from GeneralKnowlegeQuizQuestionsEntity where id ='" + QuizId+"'";
 		@SuppressWarnings("unchecked")
 		List<GeneralKnowlegeQuizQuestionsEntity> brand = session.createQuery(HQL).getResultList();
+		session.close();
 		return brand;
 	}
 	
